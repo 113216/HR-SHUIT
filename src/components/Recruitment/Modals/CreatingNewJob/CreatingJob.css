@@ -1,0 +1,27 @@
+.custom-textfield-root {
+    width: 575px;
+  }
+  
+  .custom-textfield-input {
+    padding-top: 30px; /* Adjust the padding top value as per your requirement */
+    
+  }
+  
+  .custom-textfield-input::before,
+  .custom-textfield-input::after {
+    content: none;
+  }
+  
+  .custom-textfield-input::placeholder,
+  .custom-textfield-input::-webkit-input-placeholder,
+  .custom-textfield-input::-moz-placeholder,
+  .custom-textfield-input::-ms-input-placeholder {
+    opacity: 0.5;
+  }
+  
+  .create-new-job-button{
+    background-color: #383e56;
+    color: white;
+    height: 30px;
+    border-radius: 10px;
+  }

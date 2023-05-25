@@ -1,0 +1,9 @@
+.custom-timepicker .MuiInputBase-root {
+    height: 40px;
+    width: 135px;
+  }
+  .custom-timepicker-to .MuiInputBase-root {
+    height: 40px;
+    width: 135px;
+    margin-top: -40px;
+  }

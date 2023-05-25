@@ -1,0 +1,242 @@
+.wfh-mainContainer {
+    height: 99.9vh;
+    display: flex;
+    margin: 0.5px;
+    font-family: 'Roboto';
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.wfh-page {
+    display: flex;
+    flex-direction: column;
+    width: 85vw;
+    
+}
+
+.wfh-infoBar {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    margin: 30px;
+    margin-bottom: 120px;
+}
+
+.wfh-pageName {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 25px;
+    text-transform: uppercase;
+    color: #6A6A6A;
+}
+
+.wfh-profile {
+    display: inline-flex;
+    align-items: baseline;
+}
+
+.wfh-notification {
+    width: 20px;
+    margin-right: 10px;
+    background-image: url('');
+}
+
+.wfh-edit{
+    
+    background-repeat: no-repeat;
+    height: 40px;
+    /* width: 32px; */
+    padding-right: 30px ;
+    padding-top: 15px;
+    /* margin-left: 30px; */
+    cursor: pointer;
+    border: 1px solid #566286;
+    border-radius: 20px;
+    margin: 0px;
+    /* padding: 20px; */
+    justify-content: center;
+    background-size: 13px;
+    background-image: url('../assets/Edit\ \(2\).png');
+    margin-top: 8px;
+    margin-left: 20px;
+    background-position: 10px;
+    
+}
+
+.wfh-delete{
+    background-size: 13px;
+    background-repeat: no-repeat;
+    height: 30px;
+    padding-right: 30px ;
+    padding-top: 15px;
+    /* margin-left: 30px; */
+    cursor: pointer;
+    border: 1px solid #FD9A7B;
+    border-radius: 20px;
+    margin: 0px;
+    /* padding: 20px; */
+    justify-content: center;
+    background-image: url('../assets/Del\ \(2\).png');
+    background-position: 10px;
+    margin-left: 20px;
+    margin-top: 8px;
+    align-items: center;
+}
+
+.wfh-username {
+    margin: 0px 10px;
+}
+
+.wfh-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 30px;
+}
+
+.wfh-toolbarLeft {
+    display: flex;
+}
+
+.wfh-filter {
+    width: 120px;
+    height: 30px;
+    text-align: center;
+    background: #383E56;
+    border-radius: 10px;
+    color: white;
+}
+
+.wfh-new {
+    background: #E98455;
+    cursor: pointer;
+}
+
+
+.wfh-search {
+    height: 30px;
+    width: 350px;
+    background: #E9E8E8;
+    border-radius: 10px;
+    text-indent: 20px;
+    border: none;
+    margin-right: 20px;
+    box-shadow: none;
+    background-image: url('../assets/search.png');
+    background-repeat: no-repeat;
+    background-position: 310px;
+    background-size: 15px;
+}
+
+.wfh-dropdown {
+    border-radius: 10px;
+    background-color: #E9E8E8;
+    width: 150px;
+    margin-right: 20px;
+    border: none;
+    text-indent: 10px;
+    color: #9D9D9D;
+    cursor: pointer;
+}
+
+.wfh-table {
+    margin: 30px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: #9D9D9D;
+
+    border: 1px solid #9D9D9D;
+    border-radius: 50px !important;
+    border-collapse: collapse;
+}
+
+.wfh-table th td{
+    text-align: center;
+    /* border: 1px solid #9D9D9D; */
+    /* height: 40px; */
+    /* padding: px; */
+}
+.wfh-table th{
+    height: 40px;
+}
+
+/* .wfh-tablerow{
+    border-top: 1px solid #9D9D9D;
+
+    
+} */
+
+.wfh-checkbox{
+    width: 45px;
+    border: 1px solid #9D9D9D;
+    overflow: hidden;
+    height: 20px;
+}
+
+.wfh-cell{
+    color: #767676;
+    font-size: 12px;
+    padding: 30px;
+}
+
+.wfh-role{
+    color: #A7A4A4;
+    font-size: 12px;
+}
+
+.actions{
+    /* display: flex; */
+    border: none;
+}
+.pagination-container{
+    margin-right: 200px;
+}
+
+.wfh-tabel-profile {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #1c1a1a;
+    box-shadow: 0 2px 6px #0003;
+    margin-bottom: -5px;
+    margin-left: 4px;
+    margin-right: 10px;
+    justify-self: start;
+  }
+
+  .employee-name{
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+nav{
+    width: 0px !important;
+}
+ 
+ 
+@media screen and (max-width: 768px) {
+    .wfh-mainContainer {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .wfh-page {
+      width: 100%;
+    }
+
+    .wfh-toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        margin: 0;
+      }
+    
+      .wfh-toolbarLeft {
+        margin-bottom: 10px;
+      }
+  }

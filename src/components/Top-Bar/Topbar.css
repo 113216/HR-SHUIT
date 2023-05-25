@@ -1,0 +1,59 @@
+.topbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    
+  }
+  
+  .profile {
+    display: flex;
+    align-items: center;
+    margin-right: 40px;
+    margin-top: 30px;
+  }
+  
+  .notification {
+    margin-right: 20px;
+    background: #f1f5f8;
+    border-radius: 50%;
+    background-size: 10%;
+  }
+  
+  .profile-name {
+    margin-right: 10px;
+    font-weight: 600;
+  }
+  
+ 
+    .profile-image {
+        width: 25px;
+        height: 30px;
+        border-radius: 50%;
+        border: none;
+        overflow: hidden;
+      }
+      @media screen and (max-width: 600px) {
+        /* Adjustments for screens up to 1190px width */
+        .topbar {
+          flex-wrap: wrap;
+          justify-content: flex-start;
+        }
+        
+        .profile {
+          margin-right: 20px;
+          margin-top: 10px;
+        }
+        
+        .notification {
+          margin-right: 10px;
+        }
+        
+        .profile-name {
+          margin-right: 5px;
+        }
+        
+        .profile-image {
+          width: 20px;
+          height: 25px;
+        }
+      }

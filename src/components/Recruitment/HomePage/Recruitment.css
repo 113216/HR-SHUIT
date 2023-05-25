@@ -1,0 +1,165 @@
+.wfh-mainContainer {
+    height: 99.9vh;
+    display: flex;
+    margin: 0.5px;
+    font-family: 'Roboto';
+    margin-top: auto;
+    margin-bottom: auto;
+   margin-left: 250px;
+}
+.job-card{
+    width: 350px;
+    border-radius: 15px;
+    margin-left: 15px;
+    margin-top: 35px;
+    height: 215px;
+    
+}
+ .card-title{
+    font-size: 15px;
+    font-weight: 900;
+ }
+.wfh-page {
+    display: flex;
+    flex-direction: column;
+    width: 85vw;
+    
+}
+
+.wfh-infoBar {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    margin: 30px;
+    margin-bottom: 130px;
+}
+
+.wfh-pageName {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 25px;
+    text-transform: uppercase;
+    color: #6A6A6A;
+    margin-bottom: -30px;
+}
+
+.wfh-profile {
+    display: inline-flex;
+    align-items: baseline;
+}
+
+.border-req{
+    border: 1px solid #6a6a6a;
+    margin-top: 10px;
+    margin-right: 15px;
+}
+
+.wfh-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 30px;
+    margin-top: -80px;
+}
+
+.wfh-toolbarLeft {
+    display: flex;
+}
+
+.wfh-filter {
+    width: 120px;
+    height: 30px;
+    text-align: center;
+    background: #383E56;
+    border-radius: 10px;
+}
+
+.wfh-new {
+    background: #E98455;
+    cursor: pointer;
+}
+
+
+.wfh-search {
+    height: 30px;
+    width: 350px;
+    background: #E9E8E8;
+    border-radius: 10px;
+    text-indent: 20px;
+    border: none;
+    margin-right: 20px;
+    box-shadow: none;
+    background-image: url('/src/components/assets/search.png');
+    background-repeat: no-repeat;
+    background-position: 310px;
+    background-size: 15px;
+}
+
+.wfh-dropdown {
+    border-radius: 10px;
+    background-color: #E9E8E8;
+    width: 150px;
+    margin-right: 20px;
+    border: none;
+    text-indent: 10px;
+    color: #9D9D9D;
+    cursor: pointer;
+}
+
+
+/* .wfh-tablerow{
+    border-top: 1px solid #9D9D9D;
+
+    
+} */
+
+.wfh-checkbox{
+    width: 45px;
+    border: 1px solid #9D9D9D;
+    overflow: hidden;
+    height: 20px;
+}
+
+
+.wfh-role{
+    color: #A7A4A4;
+    font-size: 12px;
+}
+
+.actions{
+    /* display: flex; */
+    border: none;
+}
+.Job-container{
+    margin-left: 40px;
+}
+.border-req{
+    display: flex;
+    margin-top:-2px;
+    margin-bottom: -2;
+    width: 290px;
+   border: 1px solid #e4e4e4;
+}
+ 
+@media screen and (max-width: 768px) {
+    .wfh-mainContainer {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .wfh-page {
+      width: 100%;
+    }
+
+    .wfh-toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        margin: 0;
+      }
+    
+      .wfh-toolbarLeft {
+        margin-bottom: 10px;
+      }
+  }
