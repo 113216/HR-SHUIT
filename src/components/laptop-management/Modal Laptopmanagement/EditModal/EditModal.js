@@ -9,6 +9,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import CloseIcon from "@mui/icons-material/Close";
 import IconButton from "@mui/material/IconButton";
 import SuccessEdit from "./SuccessEdit";
+import swal from 'sweetalert2';
 
 
 const style = {
@@ -34,6 +35,12 @@ export default function EditModal() {
   const handleOpen1 = () => {
     setOpen1(true)
 handleClose()
+swal.fire({
+  title: 'Successfully Updated Laptop Details',
+  text: '',
+  icon: 'success',
+  showConfirmButton: false,
+});
 }
   
   const handleClose1 = () => setOpen1(false);
@@ -234,7 +241,7 @@ handleClose()
             </div>
           </Box>
       </Modal>
-     {open1 &&  <SuccessEdit setOpen1={setOpen1} open1={open1} handleOpen1={handleOpen1} handleClose1={handleClose1}/>}
+     {/* {open1 &&  <SuccessEdit setOpen1={setOpen1} open1={open1} handleOpen1={handleOpen1} handleClose1={handleClose1}/>} */}
     </div>
   );
 }

@@ -10,12 +10,14 @@ import IconButton from "@mui/material/IconButton";
 import MenuItem from "@mui/material/MenuItem";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
-import SuccessAddWFH from "./SuccessAddWFH";
-import { format } from "date-fns";
+import swal from "sweetalert2";
+import dayjs from "dayjs";
+import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DesktopDateTimePicker } from "@mui/x-date-pickers/DesktopDateTimePicker";
 
 const style = {
   position: "absolute",
@@ -23,7 +25,7 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 650,
-  height: 400,
+  height: 500,
   bgcolor: "background.paper",
   borderRadius: 5,
   p: 4,
@@ -59,6 +61,12 @@ export default function AddWFH() {
   const handleOpen1 = () => {
     setOpen1(true);
     handleClose();
+    swal.fire({
+      title: "Successfully Added WFH Employee",
+      text: "",
+      icon: "success",
+      showConfirmButton: false,
+    });
   };
 
   const handleClose1 = () => setOpen1(false);
@@ -81,7 +89,6 @@ export default function AddWFH() {
   const handleEndDateChange = (date) => {
     setEndDate(date);
   };
-
 
   return (
     <div>
@@ -137,7 +144,7 @@ export default function AddWFH() {
               display: "flex",
               gap: "20px",
               marginLeft: "30px",
-              marginTop: "50px",
+              marginTop: "30px",
             }}
           >
             <div style={{ flex: 1 }}>
@@ -155,12 +162,12 @@ export default function AddWFH() {
                   className="text-field"
                   style={{
                     marginBottom: "20px",
-                    width: "260px",
+                    width: "245px",
                     backgroundColor: "#f1f5f8",
                   }}
                   size="small"
                 />
-                <div style={{ display: "flex" }}>
+                <div style={{}}>
                   <div style={{ marginRight: "10px" }}>
                     <Typography
                       variant="body2"
@@ -175,7 +182,7 @@ export default function AddWFH() {
                       className="text-field"
                       style={{
                         marginBottom: "20px",
-                        width: "130px",
+                        width: "245px",
                         backgroundColor: "#f1f5f8",
                       }}
                       size="small"
@@ -199,28 +206,17 @@ export default function AddWFH() {
                       gutterBottom
                       style={{ color: "#9D9D9D" }}
                     >
-                      Job Title
+                      From
                     </Typography>
-                    <TextField
-                      label=""
-                      fullWidth
-                      className="text-field"
-                      style={{
-                        marginBottom: "20px",
-                        width: "123px",
-                        backgroundColor: "#f1f5f8",
-                      }}
-                      size="small"
-                      select
-                      value={selectedJobTitle}
-                      onChange={handleJobTitleChange}
-                    >
-                      {jobTitles.map((jobTitle) => (
-                        <MenuItem key={jobTitle.value} value={jobTitle.value}>
-                          {jobTitle.label}
-                        </MenuItem>
-                      ))}
-                    </TextField>
+                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                      <DemoContainer components={["DesktopDateTimePicker"]}>
+                        <DemoItem label="">
+                          <div style={{ width: "280px" }}>
+                            <DesktopDateTimePicker/>
+                          </div>
+                        </DemoItem>
+                      </DemoContainer>
+                    </LocalizationProvider>
                   </div>
                 </div>
                 <RadioGroup
@@ -228,7 +224,7 @@ export default function AddWFH() {
                   name="status"
                   value={selectedStatus}
                   onChange={handleStatusChange}
-                  style={{ marginTop: "10px" }}
+                  style={{ marginTop: "30px" }}
                 >
                   <FormControlLabel
                     value="active"
@@ -254,55 +250,40 @@ export default function AddWFH() {
                   className="text-field"
                   style={{
                     marginBottom: "20px",
-                    width: "260px",
+                    width: "245px",
                     backgroundColor: "#f1f5f8",
                   }}
                   size="small"
                 />
-                <div style={{ display: "flex" }}>
+                <div>
                   <div style={{ marginRight: "10px" }}>
                     <Typography
                       variant="body2"
                       gutterBottom
                       style={{ color: "#9D9D9D" }}
                     >
-                      From
+                      Job Title
                     </Typography>
-                    <DatePicker
-                      selected={startDate}
-                      onChange={handleStartDateChange}
-                      dateFormat="yyyy-MM-dd"
-                      placeholderText="Select start date"
+                    <TextField
+                      label=""
+                      fullWidth
                       className="text-field"
                       style={{
                         marginBottom: "20px",
-                        width: "120px",
+                        width: "245px",
                         backgroundColor: "#f1f5f8",
                       }}
                       size="small"
-                      customInput={
-                        <TextField
-                          label=""
-                          fullWidth
-                          className="text-field"
-                          size="small"
-                          style={{ backgroundColor: "#f1f5f8", width: "125px" }}
-                          value={selectedDate ? format(selectedDate, "yyyy-MM-dd") : ""}
-                          InputProps={{
-                            endAdornment: (
-                              <IconButton>
-                                <CalendarMonthIcon
-                                  style={{
-                                    marginLeft: "60px",
-                                    background: "none",
-                                  }}
-                                />
-                              </IconButton>
-                            ),
-                          }}
-                        />
-                      }
-                    />
+                      select
+                      value={selectedJobTitle}
+                      onChange={handleJobTitleChange}
+                    >
+                      {jobTitles.map((jobTitle) => (
+                        <MenuItem key={jobTitle.value} value={jobTitle.value}>
+                          {jobTitle.label}
+                        </MenuItem>
+                      ))}
+                    </TextField>
                   </div>
                   <div>
                     <Typography
@@ -312,41 +293,15 @@ export default function AddWFH() {
                     >
                       To
                     </Typography>
-                    <DatePicker
-                      selected={endDate}
-                      onChange={handleEndDateChange}
-                      dateFormat="yyyy-MM-dd"
-                      placeholderText="Select end date"
-                      className="text-field"
-                      style={{
-                        marginBottom: "20px",
-                        width: "120px",
-                        backgroundColor: "#f1f5f8",
-                      }}
-                      size="small"
-                      customInput={
-                        <TextField
-                          label=""
-                          fullWidth
-                          className="text-field"
-                          size="small"
-                          style={{ backgroundColor: "#f1f5f8", width: "125px" }}
-                          value={selectedDate ? format(selectedDate, "yyyy-MM-dd") : ""}
-                          InputProps={{
-                            endAdornment: (
-                              <IconButton>
-                                <CalendarMonthIcon
-                                  style={{
-                                    marginLeft: "60px",
-                                    background: "none",
-                                  }}
-                                />
-                              </IconButton>
-                            ),
-                          }}
-                        />
-                      }
-                    />
+                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                      <DemoContainer components={["DesktopDateTimePicker"]}>
+                        <DemoItem label="">
+                          <div style={{ width: "280px" }}>
+                            <DesktopDateTimePicker/>
+                          </div>
+                        </DemoItem>
+                      </DemoContainer>
+                    </LocalizationProvider>
                   </div>
                 </div>
                 <RadioGroup
@@ -382,14 +337,14 @@ export default function AddWFH() {
           </div>
         </Box>
       </Modal>
-      {open1 && (
+      {/* {open1 && (
         <SuccessAddWFH
           setOpen1={setOpen1}
           open1={open1}
           handleOpen1={handleOpen1}
           handleClose1={handleClose1}
         />
-      )}
+      )} */}
     </div>
   );
 }

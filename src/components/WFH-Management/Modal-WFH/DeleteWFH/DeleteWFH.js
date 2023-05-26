@@ -6,6 +6,7 @@ import Modal from "@mui/material/Modal";
 import CloseIcon from "@mui/icons-material/Close";
 import IconButton from "@mui/material/IconButton";
 import DeleteWFHSuccess from "./DeleteWFHSuccess";
+import swal from 'sweetalert2';
 
 const style = {
   position: "absolute",
@@ -30,6 +31,12 @@ export default function DeleteWFH() {
   const handleOpen1 = () => {
     setOpen1(true);
     handleClose();
+    swal.fire({
+      title: 'Successfully Deleted WFH Employee',
+      text: '',
+      icon: 'success',
+      showConfirmButton: false,
+    });
   };
 
   const handleClose1 = () => setOpen1(false);
@@ -105,14 +112,14 @@ export default function DeleteWFH() {
           </div>
         </Box>
       </Modal>
-      {open1 && (
+      {/* {open1 && (
         <DeleteWFHSuccess
           setOpen1={setOpen1}
           open1={open1}
           handleOpen1={handleOpen1}
           handleClose1={handleClose1}
         />
-      )}
+      )} */}
     </div>
   );
 }

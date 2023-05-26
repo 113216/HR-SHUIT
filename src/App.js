@@ -14,6 +14,7 @@ import Message from './components/Message/Message';
 import Sidebar from './components/side-bar/Sidebar';
 import { BrowserRouter as Router } from 'react-router-dom';
 import SuccessAddApplicants from './components/Recruitment/Modals/Add-Applicants/SuccessAddApplicants';
+import EditModal from './components/laptop-management/Modal Laptopmanagement/EditModal/EditModal';
 
 
 
@@ -45,7 +46,7 @@ function App() {
       <Route path='/messages' element={<Message/>} />
     </Routes>
 
-    {/* <ApplicantsDataTable/> */}
+    {/* <WorkFromHomeTable/> */}
     {/* <Recruitment/> */}
     {/* <SuccessAddApplicants/> */}
     {/* <Sidebar/> */}

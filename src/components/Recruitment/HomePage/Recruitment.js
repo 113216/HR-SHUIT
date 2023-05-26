@@ -24,7 +24,7 @@ const yourArray = [
     backgroundColor: "white",
     hoverColor: "rgba(45, 85, 228, 0.2)",
     numberColor: "#2D55E4",
-    labrlColor: "#9D9D9D",
+    labrlColor: "#707070",
     boxShadowColor: "rgba(45,85,228, 100)",
   },
   {
@@ -33,7 +33,7 @@ const yourArray = [
     backgroundColor: "white",
     hoverColor: "rgba(228, 103, 45, 0.2)",
     numberColor: "#e4672d",
-    labrlColor: "#9D9D9D",
+    labrlColor: "#707070",
     boxShadowColor: "rgba(228,103,45,100)",
     
   },
@@ -43,7 +43,7 @@ const yourArray = [
     backgroundColor: "white",
     hoverColor: "rgba(41, 58, 128, 0.2)",
     numberColor: "#293A80",
-    labrlColor: "#9D9D9D",
+    labrlColor: "#707070",
     boxShadowColor: "rgba(41, 58, 128, 100)",
   },
   
@@ -53,7 +53,7 @@ const yourArray = [
     backgroundColor: "white",
     hoverColor: "rgba(136, 248, 167, 0.2)",
     numberColor: "#88F8A7",
-    labrlColor: "#9D9D9D",
+    labrlColor: "#707070",
     boxShadowColor: "rgba(136, 248, 167, 100)",
   },
   {
@@ -62,7 +62,7 @@ const yourArray = [
     backgroundColor: "white",
     hoverColor: "rgba(253, 154, 123, 0.2)",
     numberColor: "#FD9A7B",
-    labrlColor: "#9D9D9D",
+    labrlColor: "#707070",
     boxShadowColor: "rgba(253, 154, 123, 100)",
   },
   // Add more elements as needed

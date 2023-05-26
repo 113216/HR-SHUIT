@@ -9,6 +9,7 @@ import IconButton from "@mui/material/IconButton";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import TextField from "@mui/material/TextField";
+import swal from 'sweetalert2';
 
 const style = {
     position: "absolute",
@@ -34,6 +35,12 @@ export default function CreateModalLaptop1() {
   const handleOpen1 = () => {
     setOpen1(true)
 handleClose()
+swal.fire({
+  title: 'Successfully Added Laptop Details',
+  text: '',
+  icon: 'success',
+  showConfirmButton: false,
+});
 }
   
   const handleClose1 = () => setOpen1(false);
@@ -153,7 +160,7 @@ handleClose()
           </div>
         </Box>
       </Modal>
-     {open1 &&  <SuccessModalLaptop1 setOpen1={setOpen1} open1={open1} handleOpen1={handleOpen1} handleClose1={handleClose1}/>}
+     {/* {open1 &&  <SuccessModalLaptop1 setOpen1={setOpen1} open1={open1} handleOpen1={handleOpen1} handleClose1={handleClose1}/>} */}
     </div>
   );
 }

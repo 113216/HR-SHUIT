@@ -10,8 +10,12 @@ import IconButton from "@mui/material/IconButton";
 import MenuItem from "@mui/material/MenuItem";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-import EditSuccess from "./EditSuccess";
+import dayjs from "dayjs";
+import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DesktopDateTimePicker } from "@mui/x-date-pickers/DesktopDateTimePicker";
+import swal from 'sweetalert2';
 
 
 const style = {
@@ -20,7 +24,7 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 650,
-  height: 400,
+  height: 500,
   bgcolor: "background.paper",
   borderRadius: 5,
   p: 4,
@@ -48,6 +52,12 @@ export default function EditWFH() {
   const handleOpen1 = () => {
     setOpen1(true)
 handleClose()
+swal.fire({
+  title: 'Successfully Added WFH Employee',
+  text: '',
+  icon: 'success',
+  showConfirmButton: false,
+});
 }
 const [selectedDepartment, setSelectedDepartment] = React.useState("");
   const [selectedJobTitle, setSelectedJobTitle] = React.useState("");
@@ -75,7 +85,7 @@ const [selectedDepartment, setSelectedDepartment] = React.useState("");
             
           </span>
      
-      <Modal
+          <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
@@ -105,7 +115,7 @@ const [selectedDepartment, setSelectedDepartment] = React.useState("");
               color: "#707070",
             }}
           >
-            MODIFY WFH EMPLOYEE
+            ADDING NEW WFH EMPLOYEE
           </Typography>
 
           <div
@@ -113,7 +123,7 @@ const [selectedDepartment, setSelectedDepartment] = React.useState("");
               display: "flex",
               gap: "20px",
               marginLeft: "30px",
-              marginTop: "50px",
+              marginTop: "30px",
             }}
           >
             <div style={{ flex: 1 }}>
@@ -131,12 +141,12 @@ const [selectedDepartment, setSelectedDepartment] = React.useState("");
                   className="text-field"
                   style={{
                     marginBottom: "20px",
-                    width: "260px",
+                    width: "245px",
                     backgroundColor: "#f1f5f8",
                   }}
                   size="small"
                 />
-                <div style={{ display: "flex" }}>
+                <div style={{}}>
                   <div style={{ marginRight: "10px" }}>
                     <Typography
                       variant="body2"
@@ -151,7 +161,7 @@ const [selectedDepartment, setSelectedDepartment] = React.useState("");
                       className="text-field"
                       style={{
                         marginBottom: "20px",
-                        width: "130px",
+                        width: "245px",
                         backgroundColor: "#f1f5f8",
                       }}
                       size="small"
@@ -175,28 +185,17 @@ const [selectedDepartment, setSelectedDepartment] = React.useState("");
                       gutterBottom
                       style={{ color: "#9D9D9D" }}
                     >
-                      Job Title
+                      From
                     </Typography>
-                    <TextField
-                      label=""
-                      fullWidth
-                      className="text-field"
-                      style={{
-                        marginBottom: "20px",
-                        width: "123px",
-                        backgroundColor: "#f1f5f8",
-                      }}
-                      size="small"
-                      select
-                      value={selectedJobTitle}
-                      onChange={handleJobTitleChange}
-                    >
-                      {jobTitles.map((jobTitle) => (
-                        <MenuItem key={jobTitle.value} value={jobTitle.value}>
-                          {jobTitle.label}
-                        </MenuItem>
-                      ))}
-                    </TextField>
+                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                      <DemoContainer components={["DesktopDateTimePicker"]}>
+                        <DemoItem label="">
+                          <div style={{ width: "280px" }}>
+                            <DesktopDateTimePicker />
+                          </div>
+                        </DemoItem>
+                      </DemoContainer>
+                    </LocalizationProvider>
                   </div>
                 </div>
                 <RadioGroup
@@ -204,7 +203,7 @@ const [selectedDepartment, setSelectedDepartment] = React.useState("");
                   name="status"
                   value={selectedStatus}
                   onChange={handleStatusChange}
-                  style={{ marginTop: "10px" }}
+                  style={{ marginTop: "30px" }}
                 >
                   <FormControlLabel
                     value="active"
@@ -230,19 +229,19 @@ const [selectedDepartment, setSelectedDepartment] = React.useState("");
                   className="text-field"
                   style={{
                     marginBottom: "20px",
-                    width: "260px",
+                    width: "245px",
                     backgroundColor: "#f1f5f8",
                   }}
                   size="small"
                 />
-                <div style={{ display: "flex" }}>
+                <div>
                   <div style={{ marginRight: "10px" }}>
                     <Typography
                       variant="body2"
                       gutterBottom
                       style={{ color: "#9D9D9D" }}
                     >
-                      From
+                      Job Title
                     </Typography>
                     <TextField
                       label=""
@@ -250,21 +249,20 @@ const [selectedDepartment, setSelectedDepartment] = React.useState("");
                       className="text-field"
                       style={{
                         marginBottom: "20px",
-                        width: "125px",
+                        width: "245px",
                         backgroundColor: "#f1f5f8",
-                        // paddingRight: "30px", // Add right padding for the icon
                       }}
                       size="small"
-                      InputProps={{
-                        endAdornment: (
-                          <IconButton onClick={handleCalendarClick}>
-                            <CalendarMonthIcon
-                              style={{ marginLeft: "60px", background: "none" }}
-                            />
-                          </IconButton>
-                        ),
-                      }}
-                    />
+                      select
+                      value={selectedJobTitle}
+                      onChange={handleJobTitleChange}
+                    >
+                      {jobTitles.map((jobTitle) => (
+                        <MenuItem key={jobTitle.value} value={jobTitle.value}>
+                          {jobTitle.label}
+                        </MenuItem>
+                      ))}
+                    </TextField>
                   </div>
                   <div>
                     <Typography
@@ -274,26 +272,15 @@ const [selectedDepartment, setSelectedDepartment] = React.useState("");
                     >
                       To
                     </Typography>
-                    <TextField
-                      label=""
-                      fullWidth
-                      className="text-field"
-                      style={{
-                        marginBottom: "20px",
-                        width: "125px",
-                        backgroundColor: "#f1f5f8",
-                      }}
-                      size="small"
-                      InputProps={{
-                        endAdornment: (
-                          <IconButton onClick={handleCalendarClick}>
-                            <CalendarMonthIcon
-                              style={{ marginLeft: "60px", background: "none" }}
-                            />
-                          </IconButton>
-                        ),
-                      }}
-                    />
+                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                      <DemoContainer components={["DesktopDateTimePicker"]}>
+                        <DemoItem label="">
+                          <div style={{ width: "280px" }}>
+                            <DesktopDateTimePicker/>
+                          </div>
+                        </DemoItem>
+                      </DemoContainer>
+                    </LocalizationProvider>
                   </div>
                 </div>
                 <RadioGroup
@@ -301,7 +288,7 @@ const [selectedDepartment, setSelectedDepartment] = React.useState("");
                   name="status"
                   value={selectedStatus}
                   onChange={handleStatusChange}
-                  style={{ marginTop: "10px" }}
+                  style={{ marginTop: "30px" }}
                 >
                   <FormControlLabel
                     value="inactive"
@@ -324,12 +311,12 @@ const [selectedDepartment, setSelectedDepartment] = React.useState("");
               disableElevation
               onClick={handleOpen1}
             >
-              UPDATE
+              Update
             </Button>
           </div>
         </Box>
       </Modal>
-     {open1 &&  <EditSuccess setOpen1={setOpen1} open1={open1} handleOpen1={handleOpen1} handleClose1={handleClose1}/>}
+     {/* {open1 &&  <EditSuccess setOpen1={setOpen1} open1={open1} handleOpen1={handleOpen1} handleClose1={handleClose1}/>} */}
     </div>
   );
 }

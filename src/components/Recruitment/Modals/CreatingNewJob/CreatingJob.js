@@ -1,6 +1,7 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import swal from 'sweetalert2';
 import {
   Typography,
   TextField,
@@ -70,6 +71,12 @@ export default function CreatingJobModal() {
   const handleOpen1 = () => {
     setOpen1(true);
     handleClose();
+    swal.fire({
+      title: 'New Job Created Successfully',
+      text: '',
+      icon: 'success',
+      showConfirmButton: false,
+    });
   };
 
   const handleClose1 = () => setOpen1(false);

@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import CloseIcon from "@mui/icons-material/Close";
 import IconButton from "@mui/material/IconButton";
-
+import swal from 'sweetalert2';
 import DeleteSuccess from "./DeleteSuccess";
 
 const style = {
@@ -31,6 +31,12 @@ export default function DeleteModal() {
   const handleOpen1 = () => {
     setOpen1(true)
 handleClose()
+swal.fire({
+  title: 'Successfully Deleted Laptop Detials',
+  text: '',
+  icon: 'success',
+  showConfirmButton: false,
+});
 }
   
   const handleClose1 = () => setOpen1(false);
@@ -110,7 +116,7 @@ handleClose()
         </div>
       </Box>
       </Modal>
-     {open1 &&  <DeleteSuccess setOpen1={setOpen1} open1={open1} handleOpen1={handleOpen1} handleClose1={handleClose1}/>}
+     {/* {open1 &&  <DeleteSuccess setOpen1={setOpen1} open1={open1} handleOpen1={handleOpen1} handleClose1={handleClose1}/>} */}
     </div>
   );
 }
